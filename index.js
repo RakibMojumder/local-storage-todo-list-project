@@ -60,7 +60,7 @@ const setElementToUL = (data) => {
     li.classList.add('border', 'my-3', 'flex', 'justify-between')
     li.innerHTML = `
         <span class="w-4/5 py-2 pl-3">${data.title ? data.title : data}</span>
-        <button onclick="deleteListItem(this)" class="bg-red-500 text-sm text-white py-1 px-5">DELETE</button>
+        <button onclick="deleteListItem(this)" class="btn rounded-none border-none bg-red-500 text-sm text-white px-5">DELETE</button>
         `;
     ul.appendChild(li);
     document.getElementById('clear-all').classList.remove('hidden');
@@ -73,6 +73,8 @@ const deleteListItem = (btn) => {
     // find li er child element span tags innerText
     const parentElementChild = parentElement.children[0].innerText;
     parentElement.remove();
+
+
     let todoArray = getItemToLocalStorage('TODOS');
 
     // filter todoArr 
@@ -91,7 +93,9 @@ document.getElementById('clear-all').addEventListener('click', (e) => {
     localStorage.clear();
     document.getElementById('ul-list').innerHTML = '';
     e.target.classList.add('hidden')
-})
+});
+
+
 
 displayItemFromLocalStorage()
 
